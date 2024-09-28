@@ -1,42 +1,97 @@
-import React from 'react';
-import Link from 'next/link'; // Importa Link de Next.js
+'use client'
 
-const NavBar: React.FC = () => {
+import {
+  Box,
+  Flex,
+  Avatar,
+  Text,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  useDisclosure,
+  useColorModeValue,
+  Stack,
+  useColorMode,
+  Center,
+} from '@chakra-ui/react'
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+
+interface Props {
+  children: React.ReactNode
+}
+
+const NavLink = (props: Props) => {
+  const { children } = props
+
   return (
-    <nav className="bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <div className="text-white text-2xl font-bold">My Portfolio</div>
-          </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <Link href="/" passHref>
-                <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  Home
-                </a>
-              </Link>
-              <Link href="/about" passHref>
-                <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  About
-                </a>
-              </Link>
-              <Link href="/projects" passHref>
-                <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  Projects
-                </a>
-              </Link>
-              <Link href="/contact" passHref>
-                <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  Contact
-                </a>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-};
+    <Box
+      as="a"
+      px={2}
+      py={1}
+      rounded={'md'}
+      _hover={{
+        textDecoration: 'none',
+        bg: useColorModeValue('gray.200', 'gray.700'),
+      }}
+      href={'#'}>
+      {children}
+    </Box>
+  )
+}
 
-export default NavBar;
+export default function NavBar() {
+  const { colorMode, toggleColorMode } = useColorMode()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  return (
+    <>
+      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+          <Box>Logo</Box>
+
+          <Flex alignItems={'center'}>
+            <Stack direction={'row'} spacing={7}>
+              <Button onClick={toggleColorMode}>
+                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+              </Button>
+
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  rounded={'full'}
+                  variant={'link'}
+                  cursor={'pointer'}
+                  minW={0}>
+                  <Avatar
+                    size={'sm'}
+                    src={'https://avatars.dicebear.com/api/male/username.svg'}
+                  />
+                </MenuButton>
+                <MenuList alignItems={'center'}>
+                  <br />
+                  <Center>
+                    <Avatar
+                      size={'2xl'}
+                      src={'https://avatars.dicebear.com/api/male/username.svg'}
+                    />
+                  </Center>
+                  <br />
+                  <Center>
+                    <p>Username</p>
+                  </Center>
+                  <br />
+                  <MenuDivider />
+                  <MenuItem>Your Servers</MenuItem>
+                  <MenuItem>Account Settings</MenuItem>
+                  <MenuItem>Logout</MenuItem>
+                </MenuList>
+              </Menu>
+            </Stack>
+          </Flex>
+        </Flex>
+      </Box>
+    </>
+  )
+}
