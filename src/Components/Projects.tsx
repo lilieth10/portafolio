@@ -17,13 +17,13 @@ function Projects() {
     },
     {
       title: "Pokedex",
-      description: "",
+      description: "Este proyecto es una aplicación web interactiva que muestra una base de datos de Pokémon, permitiendo a los usuarios buscar y explorar diferentes especies. Fue desarrollado completamente en JavaScript, y se implementaron pruebas automatizadas utilizando Cypress para pruebas end-to-end y Jest para pruebas unitarias, asegurando la estabilidad y funcionalidad de la aplicación.",
       image: "Pokedex.png", 
       link: "https://pokedex-khaki-theta.vercel.app/"
     },
     {
-      title: "Proyecto 4",
-      description: "Este es un breve resumen de lo que trata el Proyecto 4.",
+      title: "Mi portafolio",
+      description: "Este proyecto consiste en el desarrollo de mi portafolio personal, una plataforma web diseñada con Next.js y Chakra UI, donde presento mis habilidades, proyectos y contacto. La página está optimizada para ser responsiva, con un diseño limpio y moderno que utiliza componentes reutilizables y buenas prácticas de desarrollo. Además, implementa un sistema de navegación fácil de usar. Es un ejemplo claro de mi experiencia en la creación de aplicaciones web completas.",
       image: "/proyecto4.png", 
       link: "#"
     }
