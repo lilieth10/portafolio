@@ -18,7 +18,7 @@ function Projects() {
     {
       title: "Pokedex",
       description: "Este proyecto es una aplicación web interactiva que muestra una base de datos de Pokémon, permitiendo a los usuarios buscar y explorar diferentes especies. Fue desarrollado completamente en JavaScript, y se implementaron pruebas automatizadas utilizando Cypress para pruebas end-to-end y Jest para pruebas unitarias, asegurando la estabilidad y funcionalidad de la aplicación.",
-      image: "Pokedex.png", 
+      image: "pokedex.png", 
       link: "https://pokedex-khaki-theta.vercel.app/"
     },
     {
