@@ -32,6 +32,7 @@ export default function NavBar() {
               alt="Logo"
               width={50} // Ajusta el tamaño según sea necesario
               height={40}
+              priority
             />
           </Box>
         </Link>
