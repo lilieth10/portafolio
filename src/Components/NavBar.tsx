@@ -26,25 +26,26 @@ export default function NavBar() {
 
         {/* Logo en lugar del texto */}
         <Link href="/" passHref>
-          <Box cursor="pointer">
-            <Image
-              src="/logo.png" // Ruta al archivo del logo en tu carpeta "public"
-              alt="Logo"
-              width={50} // Ajusta el tamaño según sea necesario
-              height={40}
-            />
-          </Box>
+        <Box width={100} height={100} position="relative">
+  <Image
+    src="/logo.png"
+    alt="Logo"
+    fill // La imagen se adapta al tamaño del contenedor
+    style={{ objectFit: "contain" }} // Ajusta cómo encaja la imagen
+  />
+</Box>
+
         </Link>
 
         <Stack direction={'row'} spacing={4} alignItems={'center'}>
           <Button as="a" href="/projects" variant="link">
-            Projects
+            Proyectos
           </Button>
           <Button as="a" href="/about" variant="link">
-            About Me
+            Sobre Mi
           </Button>
           <Button as="a" href="/contact" variant="link">
-            Contact
+            Contacto
           </Button>
           <Button onClick={toggleColorMode}>
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
